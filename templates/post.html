@@ -1,0 +1,141 @@
+{% extends "bblog.html" %}
+
+{% block content %}
+    <!-- for the polls -->
+    <script language="javascript">
+
+        function drawPercentBar(width, percent, color, background)
+        {
+            var pixels = width * (percent / 100);
+            if (!background) { background = "none"; }
+
+            document.write("<div style=\"position: relative; line-height: 1em; background-color: "
+
+                    + background + "; border: 1px solid black; width: "
+                    + width + "px\">");
+            document.write("<div style=\"height: 1em; width: " + pixels + "px; background-color: "
+                    + color + ";\"></div>");
+
+            document.write("</div>");
+        }
+    </script>
+
+
+    <!-- Posts  -->
+
+                <div class="title" style="width: 730px;"><h2>{{ post.title }} &#183;<font size="2>" color="white"> by: {{ post.creator }}</font> &#183; <font size="2>" color="white">{{ post.created|date }}</font> <font size="1" color="white"> at {{ post.created|time }}
+                <br/>"{{ post.description }}"</font></h2>
+
+                    </div>
+                <ul>
+                    <div class="body2" style="min-height: 400px">{{ post.body|linebreaks }}</div>
+
+
+                    {% if poll %}
+                       {% if not poll.voted %}
+
+                        <div class="vote" style="color: #ffffff; border-color:#ffffff;padding: 20px; padding-top: 5px; width: 232px;display: inline-block;  font: Helvetica 12pt;border:1px solid; color: white;">
+                            <font face="Verdana">choose one: <br/>
+                                <ul>
+                                    <h3>{{ poll.question }}</h3></ul><br/>
+
+                                {% if error_message %}<ul><strong>{{ error_message }}</strong></ul>{% endif %}
+
+                                <form action="/polls/vote/{{ poll.id }}/" method="post">
+                                    {% csrf_token %}
+                                    {% for choice in poll.choice_set.all %}
+
+                                        <ul><input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+                                            <label for="choice{{ forloop.counter }}">{{ choice.choice }}</label></ul>
+                                    {% endfor %}
+                                    <br/>
+                                    <ul><input type="submit" value="Vote" /></ul>
+
+                                </form></font>
+                        </div><br/>
+                           {% else %}
+                           <div id="vote" class="vote" name="myDiv" title="Example Div Element" style="color: #ffffff; border-color: #ffffff; padding: 20px; padding-top: 5px; width: 232px;display: inline-block;  font: Helvetica 12pt; border:1px solid; color: white;">
+
+                                   <ul><h3>{{ poll.question }}</h3></ul><br/>
+
+                                   <ul>
+                                       {% for choice in poll.choice_set.all %}
+                                       <font color=white>
+                                           {{ choice.choice }} - {{ choice.percentage }}%  ({{ choice.votes|stringformat:"d" }} vote{{ choice.votes|pluralize }})<br/>
+                                           <div style="font-family: Verdana; font-size: 80%; color: red; padding-top: 5px;">
+                                               <script language="javascript">drawPercentBar(230, {{ choice.percentage }}, 'red', 'white'); </script>
+
+                                           </div><br/>
+                                       {% endfor %}
+                                       Total Votes: {{ poll.total_votes|get_digit:1}}
+                                       </font>
+                                   </ul><br/>
+
+                           <a class="blog" href="{% url blog.views.vote_again post.pk  %}" title="Vote Again">Vote again?</a><br/>
+                           </div>
+                        {% endif %}
+
+
+
+
+                           </font><br/><br/>
+
+                    {% endif %}
+
+
+
+
+
+                </ul>
+        </ul></div>
+<div class="rightSide">
+    <div class="fadehover">
+	    <img src="/media/image/bw.jpg" alt="django" class="a" />
+	    <img src="/media/image/color.jpg" alt="django" class="b" />
+	</div>
+    <span>
+</span></div><br/>
+    <!-- comments -->
+    {% if comments %}
+        <h2 class="commentHeader">Comments:</h2>
+    {% endif %}
+
+    <form action="{%  url blog.views.delete_comment post.pk %}" method="POST">{%  csrf_token %}
+        {% for comment in comments %}
+            <div class="commentBody">
+                <div><font size="4">{{ comment.author }}</font> <small>- {% if comment.created|timesince == '0 minutes' %}less than a minute ago{% else %}{{ comment.created|timesince }} ago{% endif %}</small></div>
+                <div>{{ comment.body|linebreaks }}</div>
+                {% if user.is_staff and comments %}
+                    <input type="checkbox" name="delete" value="{{ comment.pk }}">
+                    <a class="blog" href="{% url blog.views.delete_comment post.pk comment.id %}">delete</a>
+                {% endif %}
+            </div></br>
+        {% endfor %}
+        {% if user.is_staff and comments %}
+            <p><input type="submit" value="Delete all selected"></p>
+        {% endif %}
+    </form>
+    <div id="addc"><h2 style="border-bottom: none">Add a comment:</h2></div>
+
+
+    <!-- Comment form  -->
+    <form action="{% url blog.views.add_comment post.pk post.slug %}" method="POST">{% csrf_token %}
+        <div>
+            {% if user.is_active %}
+                <div style="padding-left: 20px; color: #ffffff; font-size: 18;">as: {{ user.username }}</div>
+
+            {% endif %}
+            <p>{{ form.body }}</p>
+        </div>
+        <div id="submit" style="padding-left: 20px; width: 50px"><input type="submit" value="Submit"></div>
+    </form>
+
+
+
+    <div class="pagination" style="margin-top: 10px; margin-left: 20px; ">
+
+</br></br>
+
+                    &nbsp;<font size="4"><a class="blog" href="{% url blog.views.main %}" title="main page">back to main</a></font>
+    </div></div>
+{% endblock %}

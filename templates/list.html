@@ -1,0 +1,58 @@
+{% extends "bblog.html" %}
+{% block content %}
+    <ul xmlns="http://www.w3.org/1999/html">
+            {% for post in post_list %}
+                <div class="title" style="width: 730px">
+                    <h2><a href="{% url blog.views.post post.id post.slug %}" class="blog" title="{{ post.title }}">{{ post.title }}</a>
+                     &#183;<font size="2>" color="white"> by: {{ post.creator }}</font> &#183;<font size="2>" color="white"> {{ post.created|date }}</font> <font size="1" color="white"> at {{ post.created|time }}    </font> &#183;
+                        <font size=1 color="white">{% if post.comment_set.count == 0 %}no comments{% else %}{{ post.comment_set.count }} comment{{ post.comment_set.count|pluralize }}{% endif %}</font></h2>
+
+                    <a class="button" href="{% url blog.views.post post.id post.slug %}" title="click to view">
+                        <div class="rightMain" onmouseover="this.className='rightMain2'" onmouseout="this.className='rightMain'" >view
+                    </div></a>
+
+                </div>
+                <ul>
+                    <div class="body">{{ post.description|linebreaks }}</div>
+                </ul>
+            {% endfor %}
+        </ul>
+
+    </div>
+    <div class="rightSide" style="float: right; overflow-y: auto;">
+
+        <div class="fadehover">
+            <img src="/media/image/bw.jpg" alt="django" class="a" />
+            <img src="/media/image/color.jpg" alt="django" class="b" />
+
+        </div>
+
+
+
+</span>
+    </div>
+    <div>
+        <!-- Next/Prev page links  -->
+    </div>
+    </div>
+    {% if not archive and posts.object_list and posts.paginator.num_pages > 1 %}
+        <div class="pagination" style="margin-top: 20px; margin-left: 20px;margin-bottom: 10px;">
+
+            <span class="step-links">
+                {% if posts.has_next %}
+                    <a class="blogr " href="?page={{ posts.next_page_number }}">older entries</a>
+                {% endif %}
+
+
+                <span class="current">
+                    &nbsp;<font size="4" style="color: #ffffff;">Page {{ posts.number }} of {{ posts.paginator.num_pages }}</font>
+                </span>
+
+                {% if posts.has_previous %}
+                    <a class="blogr" href= "?page={{ posts.previous_page_number }}">newer entries</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+
+{% endblock %}

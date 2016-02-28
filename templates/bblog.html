@@ -1,0 +1,86 @@
+<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+    <title>
+        {% if not post.title %}Blog{% else %}{{ post.title }}{% endif %}
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="/media/css/style.css">
+    <script type='text/javascript' src='/media/js/jquery-1.4.2.js'></script>
+
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $("img.a").hover(
+                function() {
+                    $(this).stop().animate({"opacity": "0"}, "slow");
+                },
+                function() {
+                    $(this).stop().animate({"opacity": "1"}, "slow");
+                });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        <div id="main">
+
+            <div id="container">
+
+                <div id="menu">
+                    {% block nav_global %}
+                    <!-- MENU -->
+                    <font size="14" face="verdana"><a class="title" href="{% url blog.views.main %}" title="main page">blog</a></font>
+
+                        {% if user.is_staff %}|
+                            <a class="blogr" href="{% url admin:index %}" title="Admin" target="_blank">Admin</a> |
+                            <a class="blogr" href="{% url admin:blog_post_add %}" title="Add post" target="_blank">Add post</a> |
+                            <a class="blogr" href="{% url admin:blog_poll_add %}" title="Add poll" target="_blank">Add poll</a> |
+                        {% endif %}
+
+                    {% endblock %}
+                </div>
+
+                <div class="main">
+
+                    <div class="content" style="width: 73%; float: left;">
+                            {% block content %}{% endblock %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer" align="center" style="padding-bottom: 10px">
+        powered by<br/>
+        [
+        <a href="http://www.python.org"  class="blogr" title="language" target="_blank">python</a>
+        |
+        <a href="http://www.djangoproject.com" class="blogr"  title="framework" target="_blank">django</a>
+        |
+        <a href="http://www.mysql.com" class="blogr"  title="framework" target="_blank">mysql</a>
+
+
+        ]
+
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style ">
+        <a class="addthis_button_facebook_like"></a>
+        <a class="addthis_button_tweet"></a>
+        <a class="addthis_button_pinterest_pinit"></a>
+        <a class="addthis_counter addthis_pill_style"></a>
+    </div>
+
+    <!-- AddThis Button END -->
+    </div>
+</body>
+</html>

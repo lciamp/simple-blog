@@ -1,0 +1,416 @@
+/*
+Sticky Footer Solution
+by Steve Hatcher
+http://stever.ca
+http://www.cssstickyfooter.com
+*/
+
+/* THIS CSS IS FOR DIV'S WITH ROUNDED EDGES */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+html {
+    overflow-y: scroll;
+}
+body.a {
+    height: 85%;
+    background-color: black;
+
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 100%;
+    padding: 10px;
+}
+td.right
+{
+    text-align: right;
+}
+tr.youmake2
+{
+    color: #000000;
+}
+
+
+
+
+
+#container {;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    margin-top: 2%;
+    background-color: #333333;
+    font-size: 0.75em;
+    overflow: hidden;
+}
+
+#container h1 {
+    font-size: 1.7em;
+    clear: both;
+    padding: 0 10px;
+}
+/* standard link */
+a.blog:link{color: #24dbd3;text-decoration: none;}
+a.blog:visited{color: #24dbd3;text-decoration: none;}
+a.blog:hover{color:#ffffff;text-decoration: none;}
+
+/* reversed standard */
+a.blogr:link{color: #ffffff;text-decoration: none;}
+a.blogr:visited{color: #ffffff;text-decoration: none;}
+a.blogr:hover{color:#24dbd3;text-decoration: none;}
+
+/*title*/
+a.title:link{color: #ffffff;text-decoration: none;}
+a.title:visited{color: #ffffff;text-decoration: none;}
+a.title:hover{color:#24dbd3;text-decoration: none;}
+
+/* for the buttons */
+a.button:link{color: #333333;text-decoration: none; font-size: 14px;}
+a.button:visited{color: #333333;text-decoration: none;font-size: 14px;}
+a.button:hover{color:#333333;text-decoration: none;font-size: 14px;}
+
+body {font-family: verdana; color: #ffffff; background: #333333; margin: 2; height: 50%;}
+
+.main{
+    overflow: hidden;
+    border-top:2px solid; color: white;
+    border-bottom: none;
+    border-left: none;
+    border-right: 10px solid; color: #ff0000;
+    -moz-border-radius-topright: 10px;
+    border-top-right-radius: 10px 10px;
+
+}
+.content{
+    float: left;
+    overflow: hidden;
+    border-bottom: none;
+    border-left: none;
+    width: 40%;
+
+}
+.body2{
+
+    padding-right: 50px;
+    overflow: hidden;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    margin-right: 0px;
+
+
+
+}
+/*keep the bullets inside the div */
+li {list-style-position: inside; padding-left: 20px;}
+
+.rightSide{
+    min-height: 435px;
+    float: right;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background: #333333;
+
+    width: 240px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    border-top:2px solid;
+    border-bottom: 2px solid; color: #ffffff;
+    border-left: 2px solid; color: #ffffff;
+    border-right: 2px solid; color: #ffffff;
+
+
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.footer:hover a:link{color: #24dbd3;text-decoration: none;}
+.footer:hover a:visited{color: #24dbd3;text-decoration: none;}
+.footer:hover a:hover{color: #ffffff;text-decoration: none;}
+
+.rightSide:hover a:link{color: #24dbd3;text-decoration: none;}
+.rightSide:hover a:visited{color: #24dbd3;text-decoration: none;}
+.rightSide:hover a:hover{color: #ffffff;text-decoration: none;}
+
+.normal{
+    margin-right: 10px;
+    margin-top: 10px;
+    background: #333333;
+    color: white;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    border-top:2px solid;
+    border-bottom: 2px solid; color: #ffffff;
+    border-left: 2px solid; color: #ffffff;
+    border-right: 3px solid; color: #ffffff;
+
+
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.rightMain{
+    float: right;
+    margin-right: 5px;
+    margin-top: 10px;
+    background: #333333;
+    width: 105px;
+    text-align: center;
+    float: right;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 2px;
+    border-top:2px solid;
+    border-bottom: 2px solid; color: #ffffff;
+    border-left: 2px solid; color: #ffffff;
+    border-right: 2px solid; color: #ffffff;
+
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.me{
+    margin-right: 5px;
+    margin-top: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    border-top:2px solid;
+    border-bottom: 2px solid; color: #ffffff;
+    border-left: 2px solid; color: #ffffff;
+    border-right: 2px solid; color: #ffffff;
+
+
+
+}
+
+
+
+
+.rightMain2{
+    float: right;
+    margin-right: 5px;
+    margin-top: 10px;
+    background: #24dbd3;
+    width: 105px;
+    text-align: center;
+    float: right;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    border-top:2px solid;
+    border-bottom: 2px solid; color: #ffffff;
+    border-left: 2px solid; color: #ffffff;
+    border-right: 2px solid; color: #ffffff;
+
+    -moz-box-shadow: -10px -5px 20px #999;
+    -webkit-box-shadow: -10px -5px 20px #999;
+    box-shadow: -10px -5px 20px #999;
+
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.title{
+    padding-left: 5px;
+    width: 55%;
+    border-right:none;
+    border-bottom: none;
+    border-left: none;
+    border-top: none;
+}
+.body{
+    padding-left: 5px;
+    width: 668px;
+    padding-bottom: 2px;
+    border-right:1px solid; color: #ffffff;
+    border-bottom: 2px solid; color: #ffffff;
+    border-left: none;
+    border-top: none;
+
+    -moz-border-radius-bottomright: 15px;
+    border-bottom-right-radius: 15px 15px;
+}
+.commentBody{
+
+    word-wrap: break-word;
+    overflow: auto;
+    padding-left: 5px;
+    width: 73%;
+    padding-bottom: 2px;
+    border-left: 1px dotted;
+    border-right:1px solid; color: #ffffff;
+    border-bottom: 2px solid; color: #ffffff;
+
+    border-top: none;
+
+    -moz-border-radius-bottomright: 15px;
+    border-bottom-right-radius: 15px 15px;
+}
+.commentHeader{
+    color: #24dbd3;
+
+    width: 73%;
+
+}
+
+
+h1 {
+    font-size: 14px;
+    color: #ffffff;
+    border-bottom: solid #ffffff;
+}
+hr{
+    padding-left: 20px;
+}
+
+.addc{
+    padding-bottom: 10px;
+}
+h2 {
+    color: #24dbd3;
+    border-bottom: 2px dotted #ff0000;
+    width:668px;
+    margin-top: 2ex;
+    padding-bottom: 5px;}
+h3 {
+    color: #fdfffa;
+    border-bottom: 2px dotted #ff0000;
+    margin-top: 2ex;
+    padding-bottom: 5px;}
+h4 {
+    color: #fdfffa;
+
+    margin-top: 2ex;
+    padding-bottom: 5px;}
+p {
+    padding-left: 20px;
+    margin: 1em 0;
+    color: #ffffff;
+
+}
+
+div.bottom{
+    position: relative;
+    vertical-align: bottom;
+
+}
+
+.bottom span{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* fade */
+div.fadehover {
+
+    position: relative;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+}
+img.a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+img.b {
+    position: absolute;
+    left: 0;
+    top: 0;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/*
+Sticky Footer Solution
+by Steve Hatcher
+http://stever.ca
+http://www.cssstickyfooter.com
+*/
+
+* {margin:0;padding:0;}
+
+/* must declare 0 margins on everything, also for main layout components use padding, not
+vertical margins (top and bottom) to add spacing, else those margins get added to total height
+and your footer gets pushed down a bit more, creating vertical scroll bars in the browser */
+
+html, body {height: 95%;}
+
+#wrap {min-height: 95%;}
+
+#main {overflow:auto;
+}  /* must be same height as the footer */
+
+
+#footer {
+    position: relative;
+
+    margin-top: -100px; /* negative value of footer height */
+    tab-size: 10;
+    height: 100px;
+    clear:both;
+    font-size: 2;
+}
+
+.footer:hover a:link
+/*Opera Fix*/
+body:before {/* thanks to Maleika (Kohoutec)*/
+    content:"";
+    height:95%;
+    float:left;
+    width: 100%;
+    background: #ffffff;
+    margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+#id_body{
+    width: 710px;
+}
+
+div.vote
+{
+    width: 500px;
+    border-top-color: red;
+    border-top-style: dotted;
+    padding-bottom: 2px;
+    border-left: 1px dotted;
+    border-right:1px solid; color: #ffffff;
+    border-bottom: 2px solid; color: #ffffff;
+    border-top: none;
+
+    -moz-border-radius-bottomright: 15px;
+    border-bottom-right-radius: 15px 15px;
+
+
+
+
+
+}
+
+
+/* IMPORTANT
+
+You also need to include this conditional style in the <head> of your HTML file to feed this style to IE 6 and lower and 8 and higher.
+
+<!--[if !IE 7]>
+	<style type="text/css">
+		#wrap {display:table;height:100%}
+	</style>
+<![endif]-->
+
+*/
